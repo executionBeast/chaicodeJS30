@@ -93,7 +93,7 @@ console.log(be)
 behave = "letafterassignment"
 console.log(behave)
 
-be= "constafterassignment"
+// be= "constafterassignment"
 console.log(behave,be)
 
 //Result 
