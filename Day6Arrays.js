@@ -93,4 +93,8 @@ let Matrix2D = [
 console.log(Matrix2D)
 console.log("   Name      Age    Gender")
 console.log(`${Matrix2D[0][0]},  ${Matrix2D[0][1]},      ${Matrix2D[0][2]}`)
+// console.table(Matrix2D)
 
+let are = [6,7,9,4,3,7]
+let ari = [...are]
+console.log(are,ari)
