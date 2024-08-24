@@ -1,4 +1,5 @@
 console.log("================Day 1 Variables and Data Types===============")
+console.log("helloe")
 //Activity 1:
 var num1 = 69
 let num2 = 6.9
