@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guess A Number</title>
+  <style>
+  body{
+
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  .container{
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height:100vh;
+    background-color:rgba(182, 166, 166);
+
+  }
+  form{
+    display: flex;
+    flex-direction: column;
+  }
+  .input-div, .input, .submit{
+    padding:2vw;
+    border-radius: 4px;
+  }
+  #text{
+    font-size: 24px;
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <h1>Guess A Number Between 1 - 100</h1>
+    <form action="" class="form">     
+     <div class="input-div">      
+       <input type="number" id="guessnum" class="input" placeholder="guess number">
+     </div>
+     <button type="submit" class="submit">Submit</button>
+     
+    </form>
+    <h3 class="pguess-el">Previous Guess : <span></span></h3>
+    <h3 class="result-el">Result : <span ></span></h3>
+    <h3 class="attempt">Attempts: <span></span></h3>
+   </div>
+   <script>
+      let hints ={
+        greatMore:['Bahot Jaada hee Nhi Ho Gaya','App Bahot Uchaa Sochte Ho','Apke Khayal Bahot Bade Hai'],
+        greatLess:['Bahot Kam Nhi Ho Gaya','App Bahot Nichaa Sochte Ho','Apke Khayal Bahot Chhote Hai'],
+      }
+      let attempt = 10
+      const attemptEl = document.querySelector('.attempt span')
+      attemptEl.textContent = attempt
+      let number = Math.round((Math.random())*100,3)
+      let guessnum = document.getElementById("guessnum")
+      const prevGuesEl = document.querySelector('pgues-el span')
+      const resultEl = document.querySelector('.result-el span') 
+      let playGame = true
+      let isPass = false
+      console.log(number)
+
+      
+      document.querySelector('form').addEventListener('submit',function(e){
+        e.preventDefault()
+        
+        if(playGame){
+          attempt--
+          if(attempt==0){
+            playGame=false
+          }
+          if(isPass){
+              alert("You Played Well and Passed. Do you want to play again? ")
+              window.location.reload()
+            }
+          attemptEl.textContent = attempt
+          if(guessnum.value==number){
+            resultEl.textContent = `You Guessed The Current Number (${number})`
+            isPass = true
+            
+          }
+          else{
+            if(guessnum.value>number){
+              resultEl.textContent = `You Guessed Higher Than Required (${guessnum.value})`
+            }
+            else{
+              if(guessnum.value<number){
+                resultEl.textContent = `You Guessed Lower Than Required (${guessnum.value})`
+              }
+            }
+          }
+      }
+      else{
+        if(isPass){
+          alert("You Played Well and Passed. Do you want to play again? ")
+          window.location.reload()
+        }
+        else{
+      alert("Your Attempts are Exhausted!")
+      window.location.reload()
+        }
+    }
+          
+      },false)
+    
+    
+   </script>
+  
+</body>
+</html>

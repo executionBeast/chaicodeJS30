@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BMI Calculator</title>
+  <style>
+    body{
+
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    .container{
+      flex-direction: column;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100vw;
+      height:100vh;
+      background-color:rgba(182, 166, 166);
+
+    }
+    form{
+      display: flex;
+      flex-direction: column;
+    }
+    .input-div, .input, .submit{
+      padding:14px;
+      border-radius: 4px;
+    }
+    #text{
+      font-size: 24px;
+    }
+</style>
+</head>
+
+<body>
+    <div class="container">
+     <form action="" class="form">
+      <div class="input-div">
+      <lable id="text" for="height">Height:</lable>
+      <input type="number" id="height" class="input" placeholder="cm">
+      
+      </div>
+      
+      <div class="input-div">      
+        <lable id="text" for="wight">Weight:</lable>
+        <input type="number" id="weight" class="input" placeholder="meter">
+      </div>
+      <button type="submit" class="submit">Submit</button>
+      
+     </form>
+     <h3>Your BMI : <span></span></h3>
+    </div>
+  <script>
+    // 1m = 100cm
+    //1cm = 1/100m
+    document.querySelector('form').addEventListener('submit',function(e){
+      e.preventDefault()
+      let result = document.querySelector('h3 span')
+      let height = e.target[0].value;
+      let weight = e.target[1].value;
+      let bmi = Math.ceil(weight/Math.pow(height/100,2))
+      console.log("Height: ",height, "Your Weight : ",weight, "BMI :",bmi)
+      result.textContent = bmi+ (bmi>30?"( Obese)":bmi>25?"( Overweight)":bmi>18?"( Healthy)":"( Underweight)")
+      console.log(result)
+
+    },false)
+//result.textContent = `${bmi} `+ bmi>30?"(Obese)":bmi>25?"(Overweight)":bmi>18?"(Healthy)":"(Underweight)"
+//First Version: Without parentheses, the string concatenation happens before the comparison, leading to incorrect evaluation.
+//Second Version: Parentheses enforce the correct order of operations, ensuring that the BMI comparisons are evaluated first before concatenation.
+</script>
+</body>
+</html>

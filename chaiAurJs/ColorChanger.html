@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BG Color Changer</title>
+  <style>
+    body{
+      padding: 0;
+      margin: 0;
+    }
+    .container{
+      flex-direction: column;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100vw;
+      height:25vh;
+      background-color:rgba(182, 166, 166, 0.5);
+
+    }
+    .boxes{
+      display: flex;
+      flex-direction: row;
+      height:25vh;
+    }
+    .box{
+      height:100% ;
+      width: 20vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 8px;
+    }
+    #box1{
+      background-color: darkgray;
+    }
+    #box2{
+      background-color: antiquewhite;
+
+    }
+    #box3{
+      background-color: blue;
+
+    }
+    #box4{
+      background-color: yellow;
+
+    }
+    
+
+  </style>
+
+</head>
+<body>
+    
+    <div class="container">
+      <h3> Color Changer</h3>
+      <div class="boxes">
+        <div id="box1" class="box">Box1</div>
+        <div id="box2" class="box">Box2</div>
+        <div id="box3" class="box">Box3</div>
+        <div id="box4" class="box">Box4</div>
+      </div>
+    </div>
+
+    <script>
+      document.querySelector('.boxes').addEventListener('click',function(e){
+        console.log("Clicked",e.target.id)
+        let targetStyle=window.getComputedStyle(e.target)
+        document.body.style.backgroundColor= targetStyle.getPropertyValue('background-color')
+
+      },true)
+      document.querySelector('#box1').addEventListener('click',function(e){
+        console.log("Clicked Box1",e.target.id)
+        let targetStyle=window.getComputedStyle(e.target)
+        // document.body.style.backgroundColor= targetStyle.getPropertyValue('background-color')
+        document.body.style.backgroundColor= 'red'
+        
+
+      },true)
+
+    </script>
+</body>
+</html>
