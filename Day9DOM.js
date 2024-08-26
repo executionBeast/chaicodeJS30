@@ -110,7 +110,7 @@ imgContainer.addEventListener("mouseover",function(){
 
 
 // OLD
-console.log("================Day 9 DOM Manipulation ==============")
+// console.log("================Day 9 DOM Manipulation ==============")
 // // Activity 1 - Selecting and Manipulating Elements
 // // Task 1-2
 
