@@ -1,4 +1,3 @@
-
 console.log("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Day 12 Error Handling @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
 
 // Activity 1 - Basic Error Handling with Try-Catch
@@ -137,7 +136,7 @@ randomPromise
 // Day12ErrorHandling.js:136 
 //  GET https://api.github.com/usseerr/103555017 404 (Not Found)
 // (anonymous)	@	Day12ErrorHandling.js:136
-fetch("https://api.github.com/usseerr/103555017")
+fetch("https://api.github.com/user/127001")
         .then(response=>{
             console.log("Fetch Promise Handling using then: ",response)
             // const data = response.json() 
@@ -153,7 +152,7 @@ fetch("https://api.github.com/usseerr/103555017")
 
 (async function(){
     try{
-        const resp= await fetch("https://api.github.com/usseerr/103555017")
+        const resp= await fetch("https://api.github.com/user/127001")
         const data = await resp.json()
         console.log("Fetch Promise Handling using async await try catch",data)
 
